@@ -5,7 +5,7 @@ years_list = [1985, 1986, 1987, 1988, 1989]
 
 print(years_list[3])
 
-print(max(years_list))
+print(years_list[-1])
 
 things = ["mozzarella", "cinderella", "salmonella"]
 things[1] = things[1].title()
@@ -17,13 +17,14 @@ things[0] = things[0].upper()
 print(things)
 
 things.remove("salmonella")
+# del things[-1]
 
 print(things)
 
 surprise = ['Groucho', 'Chico', 'Harpo']
-surprise[2] = surprise[2].lower()
-surprise[2] = surprise[2][::-1]
-surprise[2] = surprise[2].title()
+surprise[-1] = surprise[-1].lower()
+surprise[-1] = surprise[-1][::-1]
+surprise[-1] = surprise[-1].title()
 print(surprise)
 
 # e2f = {"dog": "chien", "cat": "chat", "walrus": "morse"}
@@ -43,14 +44,19 @@ print(set(e2f.keys()))
 
 life = {
     'animals':
-        {'cats': ['Henry', 'Grumpy', 'Lucy'],
+        {'cats':
+             [
+                 'Henry', 'Grumpy', 'Lucy'
+             ],
          'octopi': {},
-         'emus': {} },
+         'emus': {}
+        },
     'plants': {},
     'other': {}
 }
 
 # print(life.keys())
 (print(key) for key in list(life.keys()))
+
 print(life['animals'])
 print(life['animals']['cats'])
