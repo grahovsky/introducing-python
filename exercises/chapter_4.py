@@ -9,33 +9,35 @@ else:
 
 start = 1
 
-while start < gues_me:
-    print(start)
+while True:
+    if start < gues_me:
+        print('too low')
+    elif start == gues_me:
+        print('found it')
+        break
+    elif start > gues_me:
+        print('oops')
+        break
     start += 1
-else:
-    print("found it!")
 
-list_1 = [i for i in range(3,-1,-1)]
+for value in [3, 2, 1, 0]:
+    print(value)
 
-for i in list_1:
-    print(i)
-
-list_2 = [i for i in range(10) if i % 2 == 1]
-
-print(list_2)
+even = [number for number in range(10) if number % 2 == 0]
+print(even)
 
 squares = {value: value**2 for value in range(10)}
 print(squares)
 
-odd = {i for i in range(10) if i % 2 == 0}
+odd = {number for number in range(10) if number % 2 == 1}
 print(odd)
 
 gen = ('Got ' + str(i) for i in range(10))
 
 print(type(gen))
 
-for gen_item in gen:
-    print(gen_item)
+for thing in ('Got %s' % number for number in range(10)):
+    print(thing)
 
 def test(func):
     def new_function(*args, **kwargs):
@@ -50,11 +52,13 @@ def good() -> list:
 
 @test
 def get_odds():
-    return [i for i in range(10) if i % 2 == 0]
+    for number in range(1, 10, 2):
+        yield number
 
-odds = get_odds()
-
-print(odds[2])
+for count, number in enumerate(get_odds(), 1):
+    if count == 3:
+        print("The third odd number is", number)
+        break
 
 class OopsException(Exception):
     print('Oops')
@@ -63,11 +67,10 @@ class OopsException(Exception):
 try:
     raise OopsException
 except OopsException as exc:
-    print(exc)
+    print('Caught an oops')
 
 titles = ['Creature of Habbit', 'Crewel Fate']
 plots = ['A nun turns into a monster', 'A haunted yarn shop']
 
 movies = dict(zip(titles, plots))
-
 print(movies)
