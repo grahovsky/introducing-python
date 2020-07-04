@@ -1,16 +1,20 @@
+"test argument pass"
 import sys
 
 print('Program arguments:', sys.argv)
 
-l1 = 'test global'
+VARIABLE = 'test global'
 
 def func1():
+    "test local variable"
     # global l1
-    l1 = 'test local'
-    print('local l1', l1)
+    VARIABLE = 'test local'
+    print('local VARIABLE', VARIABLE)
 
-print('global l1', l1)
+print('global VARIABLE', VARIABLE)
 
 func1()
 
-print('global l1', l1)
+print('global VARIABLE', VARIABLE)
+
+# check with 'pylint args_test.py'
